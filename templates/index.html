@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>Counter</h1>
+        <div class="button-box">
+            <h3>Counter: {{count}}</h3>
+            <h3>Page Views: {{page_views}}</h3>
+        </div>
+        <div class="button-box">
+            <button><a href="+2">Add {{ session['count_value'] + 1 }}</a></button>
+            <button><a href="destroy_session">Destroy Session</a></button>
+        </div>
+        <form action="/change_counter_increment" method="post">
+            <label>
+                Button Increment
+                <input type="number" name="increment_value">
+            </label>
+            <input type="submit" value="change increment">
+        </form>
+    </div>
+</body>
+</html>
